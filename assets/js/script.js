@@ -151,3 +151,24 @@ function getTodaysDate() {
     $("#currentDay").text(todaysDate);
 }
 getTodaysDate();
+
+function init() {
+    var scheduleToday = JSON.parse(localStorage.getItem("today"));
+
+    if (scheduleToday) {
+        schedule = scheduleToday;
+    }
+
+    todo();
+    displaySchedule();
+}
+
+function todo() {
+    localStorage.setItem("today", JSON.stringify(schedule));
+}
+
+function displaySchedule() {
+    schedule.forEach(function (currentHour) {
+        $(`#${currentHour.id}`).val(currentHour.note);
+    })
+}
