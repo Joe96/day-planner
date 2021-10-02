@@ -150,21 +150,21 @@ function getTodaysDate() {
     var todaysDate = moment().format('dddd, MMMM Do');
     $("#currentDay").text(todaysDate);
 }
+
 getTodaysDate();
 
 function init() {
-    var scheduleToday = JSON.parse(localStorage.getItem("today"));
+    var scheduleToday = JSON.parse(localStorage.getItem("_24Hours"));
 
     if (scheduleToday) {
         _24hours = scheduleToday;
     }
-
     todo();
     displaySchedule();
 }
 
 function todo() {
-    localStorage.setItem("today", JSON.stringify(_24hours));
+    localStorage.setItem("_24Hours", JSON.stringify(_24hours));
 }
 
 function displaySchedule() {
@@ -217,4 +217,15 @@ _24hours.forEach(function(currentTime) {
     });
     saveSchedule.append(saveBtn);
     timeBlock.append(hour, schedule, saveSchedule);
+})
+
+init();
+
+
+$(".saveBtn").on("click", function(event) {
+    event.preventDefault();
+    var position = $(this).siblings(".description").children(".future").attr("id");
+    _24hours[position].note = $(this).siblings(".description").children(".future").val();
+    todo();
+    displaySchedule();
 })
