@@ -33,7 +33,8 @@ THEN the saved events persist
 ```
 
 ## Screen Shots
-![Screenshot 1](https://user-images.githubusercontent.com/17390256/134069580-38f30c2d-4f48-4a2f-ae40-6d2ca9d1ee65.png)
+![Daily Planner Screenshot](https://user-images.githubusercontent.com/17390256/135699547-8b948e87-21da-4c55-9f64-2948cee89bf7.png)
+
 
 ## Git Page
 
